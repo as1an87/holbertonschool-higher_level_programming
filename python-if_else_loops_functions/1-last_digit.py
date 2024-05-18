@@ -17,4 +17,4 @@ else:
     elif (ld == 0):
         print("Last digit of {} is {} and and is 0".format(number,ld))
     else:
-      print("Last digit of {} is {} and is less than 6 and not 0".format(number,ld)))
+      print("Last digit of {} is {} and is less than 6 and not 0".format(number,ld))
