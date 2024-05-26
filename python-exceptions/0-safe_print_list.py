@@ -8,9 +8,9 @@ def safe_print_list(my_list=[], x=0):
         pass
     finally:
         print()
-    if x >= i:
+    if x > i:
         return i + 1
     elif x == 0:
-        return i
+        return x
     else:
         return x + 1
