@@ -9,7 +9,7 @@ def safe_print_list(my_list=[], x=0):
     finally:
         print()
     if x > i:
-        return i + 1
+        return i
     elif x == 0:
         return x
     else:
