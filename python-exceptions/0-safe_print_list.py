@@ -7,4 +7,7 @@ def safe_print_list(my_list=[], x=0):
         pass
     finally:
         print()
-    return min(x, i)
+    if x >= i:
+        return i + 1
+    else:
+        return x + 1
