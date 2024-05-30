@@ -1,5 +1,12 @@
 #!/usr/bin/python3
+"""
+Divide matrix
+
+"""
+
+
 def matrix_divided(matrix, div):
+    """Divide matrix"""
     for row in matrix:
         for elem in row:
             if not isinstance(elem, (int, float)):
