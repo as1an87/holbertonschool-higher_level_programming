@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""
+    Add integer
+"""
 def add_integer(a, b=98):
+    """Add integer"""
     def cast_to_int(a, b):
         if isinstance(a, float):
             a = int(a)
