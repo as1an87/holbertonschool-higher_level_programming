@@ -1,19 +1,19 @@
 """Test for the say_my_name function"""
 
 # Import the function from the module
->>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name = __import__('say_my_name_3').say_my_name
 
 # Test 1: Both first name and last name provided
 >>> say_my_name("John", "Smith")
-My name is John Smith
+My name is John Smith.
 
 # Test 2: Both first name and last name provided
 >>> say_my_name("Walter", "White")
-My name is Walter White
+My name is Walter White.
 
 # Test 3: Only first name provided
 >>> say_my_name("Bob")
-My name is Bob 
+My name is Bob.
 
 # Test 4: TypeError raised when first name is not a string
 >>> say_my_name(12, "White")
@@ -31,5 +31,5 @@ TypeError: last_name must be a string
 >>> say_my_name()
 Traceback (most recent call last):
     ...
-TypeError: last_name must be a string
+TypeError: say_my_name() missing 2 required positional arguments: 'first_name' and 'last_name'
 
