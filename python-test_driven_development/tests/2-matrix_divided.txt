@@ -1,67 +1,39 @@
-# Test cases for matrix_divided function
+# Test 1: Regular matrix with integer division
+matrix= [[1, 2, 3], [4, 5, 6]] / div= 3
+# Expected output: [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
-# Test Case 1
-# Input: 
-# Matrix:
-# [[1, 2, 3],
-#  [4, 5, 6]]
-# Divisor: 3
-# Expected Output:
-# [[0.33, 0.67, 1.0],
-#  [1.33, 1.67, 2.0]]
+# Test 2: Regular matrix with string as divisor
+matrix= [[1, 2, 3], [4, 5, 6]] / div= "3"
+# Expected output: TypeError div must be a number
 
-# Test Case 2
-# Input: 
-# Matrix:
-# [[1.5, 2.5, 3.5],
-#  [4.5, 5.5, 6.5]]
-# Divisor: 2
-# Expected Output:
-# [[0.75, 1.25, 1.75],
-#  [2.25, 2.75, 3.25]]
+# Test 3: Regular matrix with divisor as 0
+matrix= [[1, 2, 3], [4, 5, 6]] / div= 0
+# Expected output: ZeroDivisionError division by zero
 
-# Test Case 3
-# Input: 
-# Matrix:
-# [[1, 2],
-#  [3, 4],
-#  [5, 6]]
-# Divisor: 0
-# Expected Output:
-# ZeroDivisionError: division by zero
+# Test 4: Not a list of lists of integers
+matrix= [1, 2, 3] / div= 3
+# Expected output: TypeError matrix must be a matrix (list of lists) of integers/floats
 
-# Test Case 4
-# Input: 
-# Matrix:
-# [[1, "2", 3],
-#  [4, 5, 6]]
-# Divisor: 2
-# Expected Output:
-# TypeError: matrix must be a matrix (list of lists) of integers/floats
+# Test 5: Matrix with rows of different sizes
+matrix= [[1, 2, 3], [4, 5]] / div= 3
+# Expected output: TypeError Each row of the matrix must have the same size
 
-# Test Case 5
-# Input: 
-# Matrix: []
-# Divisor: 2
-# Expected Output:
-# TypeError: matrix cannot be empty
+# Test 6: Regular matrix with divisor as float('inf')
+matrix= [[1, 2, 3], [4, 5, 6]] / div= float('inf')
+# Expected output: [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
-# Test Case 6
-# Input: 
-# Matrix:
-# [[1, 2],
-#  [3, 4],
-#  [5]]
-# Divisor: 2
-# Expected Output:
-# TypeError: Each row of the matrix must have the same size
+# Test 7: Matrix with one element as float('inf')
+matrix= [[1, 2, 3], [4, float('inf'), 6]] / div= 3
+# Expected output: ValueError matrix contains invalid element (inf or nan)
 
-# Test Case 7
-# Input: 
-# Matrix:
-# [[1, 2, 3],
-#  [4, 5, 6]]
-# Divisor: "2"
-# Expected Output:
-# TypeError: div must be a number
+# Test 8: Matrix with one element as float('nan')
+matrix= [[1, 2, 3], [4, float('nan'), 6]] / div= 3
+# Expected output: ValueError matrix contains invalid element (inf or nan)
+
+# Test 9: Missing one argument
+matrix= [[1, 2, 3], [4, 5, 6]]
+# Expected output: TypeError missing required positional argument: 'div'
+
+# Test 10: Missing both arguments
+# Expected output: TypeError missing required positional argument: 'matrix' and 'div'
 
