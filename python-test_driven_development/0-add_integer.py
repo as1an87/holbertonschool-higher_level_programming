@@ -4,14 +4,8 @@
 """
 def add_integer(a, b=98):
     """Add integer"""
-    def cast_to_int(a, b):
-        if isinstance(a, float):
-            a = int(a)
-        if isinstance(b, float):
-            b = int(b)
-        return a, b
-    if not isinstance(a, int):
+    if type(a) is not float and type(a) is not int:
         raise TypeError("a must be an integer")
-    elif not isinstance(b, int):
+    if type(b) is not float and type(b) is not int:
         raise TypeError("b must be an integer")
     return int(a) + int(b)
