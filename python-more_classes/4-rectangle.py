@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-3
+4
 """
 
 
 class Rectangle:
-    """3"""
+    """4"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
@@ -45,5 +45,5 @@ class Rectangle:
             return ""
         return "\n".join(["#" * self.width for _ in range(self.height)])
 
-        def __repr__(self):
+    def __repr__(self):
         return f"Rectangle({self.width}, {self.height})"
