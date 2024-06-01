@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""
+area
+"""
 class Rectangle:
+    """area"""
     def __init__(self, width=0, height = 0):
         self.width = width
         self.height = height
