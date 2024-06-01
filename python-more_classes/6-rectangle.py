@@ -4,6 +4,8 @@
 """
 
 number_of_instances = 0
+
+
 class Rectangle:
     """5"""
     number_of_instances += 0
