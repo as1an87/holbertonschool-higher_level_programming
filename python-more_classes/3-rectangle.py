@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""
+3
+"""
+
+
 class Rectangle:
+    """3"""
     def __init__(self, width=0, height = 0):
         self.width = width
         self.height = height
