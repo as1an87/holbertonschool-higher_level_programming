@@ -2,9 +2,11 @@
 """
 area
 """
+
+
 class Rectangle:
     """area"""
-    def __init__(self, width=0, height = 0):
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
@@ -30,7 +32,9 @@ class Rectangle:
             raise TypeError("height mus be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
+        
         self.__height = value
+
     def area(self):
         return self.width * self.height
     def perimeter(self):
