@@ -9,4 +9,4 @@ def append_write(filename="", text=""):
     char_count = len(text)
     with open(filename, mode='a', encoding='utf-8') as file:
         file.write(text)
-    return chat_count
+    return char_count
