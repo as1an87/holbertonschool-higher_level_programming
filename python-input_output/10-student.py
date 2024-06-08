@@ -5,7 +5,7 @@
 class Student:
     """
     A class that defines a student by:
-    
+
     Public instance attributes:
     - first_name
     - last_name
