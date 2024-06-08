@@ -7,7 +7,7 @@ class
 class Student:
     """
     A class that defines a student by:
-    
+
     Public instance attributes:
     - first_name
     - last_name
@@ -19,7 +19,7 @@ class Student:
     def __init__(self, first_name, last_name, age):
         """
         Initialize a new Student instance.
-        
+
         Parameters:
         - first_name (str): The first name of the student.
         - last_name (str): The last name of the student.
