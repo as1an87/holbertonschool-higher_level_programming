@@ -1,21 +1,17 @@
 #!/usr/bin/python3
+"""
+script to save and load
+"""
 import sys
-import os
 
-# Import the required functions
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
+save_json = __import__('5-save_to_json_file').save_to_json_file
+load_json = __import__('6-load_from_json_file').load_from_json_file
 
-filename = "add_item.json"
-
-# Load existing items if the file exists
-if os.path.exists(filename):
-    items = load_from_json_file(filename)
-else:
-    items = []
-
-# Add all command-line arguments to the list
-items.extend(sys.argv[1:])
-
-# Save the updated list back to the file
-save_to_json_file(items, filename)
+file = "add_item.json"
+try:
+    new = load_json(file)
+except (ValueError, FileNotFoundError):
+    new = []
+for args in sys.argv[1:]:
+    new.append(args)
+save_json(new, file)
