@@ -1,3 +1,3 @@
 -- remove all with this credentianls
-DROP second_table
+DELETE FROM  second_table
 WHERE score <= 5;
