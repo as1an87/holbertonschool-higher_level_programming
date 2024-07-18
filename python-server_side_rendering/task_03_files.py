@@ -4,44 +4,38 @@ import csv
 
 app = Flask(__name__)
 
-def read_json_file(file_path):
-    try:
-        with open(file_path, 'r') as f:
-            return json.load(f)
-    except Exception as e:
-        return None, str(e)
+def read_json(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
 
-def read_csv_file(file_path):
-    try:
-        with open(file_path, 'r') as f:
-            reader = csv.DictReader(f)
-            return [row for row in reader], None
-    except Exception as e:
-        return None, str(e)
+def read_csv(file_path):
+    products = []
+    with open(file_path, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            row['id'] = int(row['id'])
+            row['price'] = float(row['price'])
+            products.append(row)
+    return products
 
 @app.route('/products')
-def products():
+def display_products():
     source = request.args.get('source')
     product_id = request.args.get('id', type=int)
-    products = []
-    error = None
 
     if source == 'json':
-        products, error = read_json_file('products.json')
+        products = read_json('products.json')
     elif source == 'csv':
-        products, error = read_csv_file('products.csv')
+        products = read_csv('products.csv')
     else:
-        error = "Wrong source"
+        return render_template('product_display.html', error="Wrong source")
 
-    if products is not None and product_id is not None:
-        products = [p for p in products if int(p['id']) == product_id]
+    if product_id:
+        products = [product for product in products if product['id'] == product_id]
         if not products:
-            error = "Product not found"
-    elif products is None:
-        error = "Error reading the data file"
+            return render_template('product_display.html', error="Product not found")
 
-    return render_template('product_display.html', products=products, error=error)
+    return render_template('product_display.html', products=products)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
-
+    app.run(debug=True)
